@@ -1,0 +1,5 @@
+lukas:123
+denis:456
+jakub:100
+omar:
+olga:454

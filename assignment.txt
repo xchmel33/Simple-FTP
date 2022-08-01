@@ -1,0 +1,26 @@
+Computer Communications and Networks project 2
+
+
+TASK:
+
+Design and implement server and client CLI applications in C/C++/C# for the Simple FTP protocol according to RFC 913
+The output of the program will be two programs ipk-simpleftp-server and ipk-simpleftp-client.
+The server application will output the questions and answers of the protocol when communicating with the client.
+The client application prints the same, but when controlling it, it also expects a prompt for entering user input in order to interact with the server.
+
+Calling the server program:
+
+./ipk-simpleftp-server {-i interface} {-p port} [-u file_path] [-f directory_path]
+    -i eth0 interface on which the server will listen. The argument is optional, if not present the application will listen on all meaningful interfaces (bind to 0.0.0.0)
+    -p 115 port on which the server will listen for connections from clients. The argument is optional, if not specified, 115 is assumed.
+    -u /tmp/userpass.txt is the absolute path to the file with the database of user accounts authorized to connect to the server (the file has the structure username:password on each line with a colon separator between username and password, you do not need to consider using : in strings with username and password)
+    -f /tmp/simpleftp/ is the absolute path to the client/server working directory where files will be uploaded/downloaded
+
+Calling the client program:
+
+./ipk-simpleftp-client [-h IP] {-p port} [-f directory_path]
+    -h 192.168.1.1 is the IPv4 or IPv6 address of the server
+    -p 115 is the port number the server is listening on. An optional argument, where the value 115 is assumed in its absence
+    -f /tmp/simpleftp/ is the absolute path to the client/server working directory where files will be uploaded/downloaded
+
+After starting the client, the user will enter Simple FTP client commands manually. The client application will also print responses from the server to the output.
